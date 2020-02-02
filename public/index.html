@@ -313,7 +313,7 @@
 
         <slide>
           <div style="margin : 0 auto; padding: 10px; width:75%; background-color: lightcyan;">
-            <h1 style="color: black;">날짜 설정</h1>
+            <h1 style="color: black;">일간 차트</h1>
     
             <input v-model="setD"  type="date">
             <input type="button"  value = "불러오기" v-on:click="getOneDayValue()">
@@ -321,6 +321,19 @@
             <canvas id="canvas2"></canvas>
 
             <button class="btn btn-primary btn-xl" id="addStatus1">Add Status</button>
+          </div>
+        </slide>
+
+        <slide>
+          <div style="margin : 0 auto; padding: 10px; width:75%; background-color: lightcyan;">
+            <h1 style="color: black;">주간 차트</h1>
+    
+            <input v-model="setM"  type="date">
+            <input type="button"  value = "불러오기" v-on:click="getWeeksValue()">
+            <p style="color: red;">{{ error }}</p>
+            <canvas id="canvas3"></canvas>
+
+           
           </div>
         </slide>
         <hooper-navigation slot="hooper-addons"></hooper-navigation>
