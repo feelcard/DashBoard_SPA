@@ -1,6 +1,6 @@
 # DASHBOARD_MC 온습도 현황판
 
-### Node.js Server, Firebase DB, MicroDevice, 기상청API 를 활용한
+### Node.js Server, Firebase DB, MicroDevice, 기상청API 를 활용한,Vue.js
 
 ### 목차
 
@@ -31,7 +31,13 @@
 
 # 2. 사용기술 및 시스템 구성
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11059282-46cc-45dd-b51f-cb53a577082d/dashboard_system2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11059282-46cc-45dd-b51f-cb53a577082d/dashboard_system2.png)
+전체 구성
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11059282-46cc-45dd-b51f-cb53a577082d/dashboard_system2.png](https://user-images.githubusercontent.com/23710051/73605892-863b0c00-45e7-11ea-96ac-87c06c2d1a37.png)
+
+Server 구성
+
+![Server](https://user-images.githubusercontent.com/23710051/73605893-863b0c00-45e7-11ea-9375-80cb1449950b.png)
 
 1. Web Front
 : `HTML5` , `CSS3.0`, `JavaScript(ESMA6)`, `Bootstrap`, `jQuery(3.4.1)` `Vue.js ` ,` Webpack`
@@ -50,7 +56,7 @@
 
  : Google Firebase Cloud Firestore
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b1ddaa57-5cec-429d-8e1c-fc1c92297b3b/db.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b1ddaa57-5cec-429d-8e1c-fc1c92297b3b/db.png)
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b1ddaa57-5cec-429d-8e1c-fc1c92297b3b/db.png](https://user-images.githubusercontent.com/23710051/73605894-863b0c00-45e7-11ea-976d-48b3a2d99b03.png)
 
 - 컬렉션(collection) : "mc"
     - 문서(doc) : "YYYYMMDDhhmm" (time필드를 포맷 변환한 String)
@@ -110,10 +116,13 @@
 ### 2. 클라이언트 사이드
 
 1. 현재(가장 최근) 현황 출력
-: `getLatestData()`
-→ Select from Firebase DB (가장 최근 레코드 1개)
-→ 출력
+  : `getLatestData()`
+  → Select from Firebase DB (가장 최근 레코드 1개)
+  → 출력
+
 2. 수집한 데이터를 차트로 출력
+
+   : vue.js를 이용하여 비동기 화면 구축, vue 객체를 선언하고 그안에 컴포넌트를 추가해서 슬라이드 효과를 넣을 수 있는 Hooper.js 라이브러리 사용
 
 ### 3. Time Format 관련
 
@@ -209,7 +218,6 @@
     });
     ```
     
-
 3. Node.js 서버 환경설정
 
     ```javascript
@@ -695,11 +703,17 @@
 
 ![현황 차트](https://user-images.githubusercontent.com/23710051/73591170-b672a400-452e-11ea-9cea-f5efaf1b97e7.png)
 
-한달치 데이터를 주마다 나타낸 차트 구현
+정해진 기간의 데이터를 일별로 나타내는 차트 구현
 
-![한달 데이터 차트](https://user-images.githubusercontent.com/23710051/73591173-b70b3a80-452e-11ea-86a6-4e250d57da10.png)
+![기간 차트](https://user-images.githubusercontent.com/23710051/73605895-86d3a280-45e7-11ea-9f5b-4418f25bbf5d.png)
 
+한달치 데이터를 요알마다마다 나타낸 차트 구현
 
+![한달 데이터 차트](https://user-images.githubusercontent.com/23710051/73605891-863b0c00-45e7-11ea-8d34-5ed51e50ddb1.png)
+
+일별 차트  구현
+
+![시간대별 차트](https://user-images.githubusercontent.com/23710051/73591172-b70b3a80-452e-11ea-8aec-47664ebb6c1b.png)
 
 
 
@@ -707,8 +721,3 @@
 
 ![슬라이드 구현](https://user-images.githubusercontent.com/23710051/73591171-b672a400-452e-11ea-8c2d-906facf0a74a.png)
 
-일별 차트  구현
-
-
-
-![시간대별 차트](https://user-images.githubusercontent.com/23710051/73591172-b70b3a80-452e-11ea-8aec-47664ebb6c1b.png)
